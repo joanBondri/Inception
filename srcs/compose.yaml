@@ -1,6 +1,0 @@
-services:
-  foo:
-    image: busybox
-    environment:
-      - nginx
-    command: echo "I'm running NGINX"
