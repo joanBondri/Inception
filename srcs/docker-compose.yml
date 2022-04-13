@@ -3,4 +3,3 @@ services:
     build : ./nginx
     ports :
         - "8080:8080"
-    command: echo "I'm running NGINX"
