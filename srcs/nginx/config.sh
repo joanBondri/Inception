@@ -1,4 +1,4 @@
-openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out MyCertificate.crt -keyout MyKey.key;
-mv ./MyCertificate.crt /var/www/html/cert.crt;
-mv ./MyKey /var/www/html/Key.key;
-chmod 666 /var/wwwhtml/Key.key
+openssl req -x509 -nodes -subj '/CN=localhost' -newkey rsa:4096 -keyout key.key -out cert.crt -sha256 -days 365
+mv ./cert.crt /etc/nginx/cert.crt;
+mv ./key.key /etc/nginx/key.key;
+chmod 666 /etc/nginx/key.key
