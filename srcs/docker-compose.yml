@@ -1,5 +1,14 @@
-services:
-  web:
+services :
+  web :
     build : ./nginx
     ports :
         - "8080:8080"
+
+  sql :
+      build :
+          context : ./mariaDB
+          args :
+              user_name : ${USER_NAME_MARIADB}
+              user_password : ${USER_PASSWORD_MARIADB}
+      env_file :
+          - .env
