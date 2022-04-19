@@ -15,4 +15,6 @@ ADD		./requirements/config.sh /config.sh
 
 RUN		chmod 777 /config.sh;
 
-CMD		["/config.sh", $user_name , $user_password]
+EXPOSE	3306
+
+CMD		["sh","/config.sh"]

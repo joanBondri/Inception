@@ -5,10 +5,11 @@ services :
         - "8080:8080"
 
   sql :
-      build :
-          context : ./mariaDB
-          args :
-              user_name : ${USER_NAME_MARIADB}
-              user_password : ${USER_PASSWORD_MARIADB}
+      build : ./mariaDB
+      ports :
+        - "3306:3306"
+      environment :
+          USER_NAME_MARIADB : ${USER_NAME_MARIADB}
+          PASSWORD_NAME_MARIADB : ${USER_PASSWORD_MARIADB}
       env_file :
-          - .env
+      - .env
