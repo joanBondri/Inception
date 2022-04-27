@@ -1,15 +1,33 @@
+networks :
+    backend :
 services :
-  web :
+  nginx :
+      #    depends_on :
+      #        - wordpress
     build : ./nginx
     ports :
         - "8080:8080"
+    volumes :
+        - /mnt/nfs/homes/jbondri/data/wordpress:/data/volumes/wordpress/
+    networks :
+        - backend
 
-  sql :
-      build : ./mariaDB
-      ports :
-        - "3306:3306"
-      environment :
-          USER_NAME_MARIADB : ${USER_NAME_MARIADB}
-          PASSWORD_NAME_MARIADB : ${USER_PASSWORD_MARIADB}
-      env_file :
-      - .env
+  wordpress :
+    build : ./wordpress
+    ports :
+        - "9000:9000"
+          #    depends_on :
+          #        - mariadb
+  mariadb :
+    build : ./mariaDB
+    ports :
+      - "3306:3306"
+    environment :
+        USER_NAME_MARIADB : ${USER_NAME_MARIADB}
+        PASSWORD_NAME_MARIADB : ${USER_PASSWORD_MARIADB}
+    env_file :
+    - .env
+    volumes :
+        - /mnt/nfs/homes/jbondri/data/db:/data/db/
+    networks :
+        - backend

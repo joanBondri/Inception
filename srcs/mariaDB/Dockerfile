@@ -17,4 +17,6 @@ RUN		chmod 777 /config.sh;
 
 EXPOSE	3306
 
-CMD		["sh","/config.sh"]
+RUN		sh /config.sh
+
+CMD		mysqld

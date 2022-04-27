@@ -1,15 +1,6 @@
 FROM debian:buster
 
 MAINTAINER JoanBondri
-
-RUN		apt update -y
-RUN		apt-get update -y
-RUN		apt-get install nginx -y \
-		&& apt-get install mariadb-server -y \
-		&& apt-get install vim -y \
-		&& apt-get install wget -y \
-		&& apt-get clean \
- 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt update -y;
 RUN apt-get update -y;
 RUN apt install -y php7.3-fpm php7.3-mysql
@@ -23,12 +14,8 @@ RUN apt install -y php7.3-xml
 RUN apt install -y php7.3-soap
 RUN apt install -y php7.3-xsl
 RUN apt install -y php7.3-zip
-ADD		./nginx.conf /etc/nginx/nginx.conf 
-ADD		./index.html /var/www/html/
-ADD		./config.sh /
 
-RUN		sh /config.sh
+ADD		requirements/wordpress.conf /etc/
 
-EXPOSE 8080
-
-CMD ["nginx", "-g" ,"daemon off;"]
+EXPOSE	9000
+CMD /usr/sbin/php7.3-fpm -R -F
