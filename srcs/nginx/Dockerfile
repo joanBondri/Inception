@@ -12,7 +12,7 @@ RUN		apt-get install nginx -y \
 		&& apt-get clean \
  		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN		mkdir -p /buff/nginx/
+RUN		mkdir -p /buff/nginx/ /var/www/wordpress/
 
 WORKDIR		/buff/nginx/
 
@@ -20,7 +20,6 @@ ADD		./requirements/nginx.conf /etc/nginx/nginx.conf
 
 ADD		./requirements/config.sh /buff/nginx/config.sh
 
-RUN		mv /var/www/html/index.nginx-debian.html /var/www/html/index.html
 RUN		sh /buff/nginx/config.sh
 
 EXPOSE 8080

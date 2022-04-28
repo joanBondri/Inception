@@ -20,9 +20,9 @@ WORKDIR		/tmp
 RUN		curl -O https://wordpress.org/latest.tar.gz
 RUN		tar xzvf latest.tar.gz
 RUN		cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
-RUN		mkdir -p /tmp/wordpress/wp-content/upgrade /var/www/wordpress /run/php
+RUN		mkdir -p /tmp/wordpress/wp-content/upgrade /run/php /var/www/wordpress/
 RUN		sed 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 0.0.0.0:9000/' -i /etc/php/7.3/fpm/pool.d/www.conf
-RUN		cp -a /tmp/wordpress/. /var/www/wordpress
+RUN		mv /tmp/wordpress/. /var/www/wordpress/
 ADD		requirements/wordpress.conf /etc/
 
 EXPOSE	9000
