@@ -16,6 +16,8 @@ services :
     build : ./wordpress
     ports :
         - "9000:9000"
+    volumes :
+        - /mnt/nfs/homes/jbondri/data/wordpress:/data/volumes/wordpress/
           #    depends_on :
           #        - mariadb
   mariadb :
