@@ -15,7 +15,7 @@ ADD		./requirements/config.sh /config.sh
 
 RUN		chmod 777 /config.sh;
 
-EXPOSE	3306
+EXPOSE	3307
 
 RUN		sh /config.sh
 

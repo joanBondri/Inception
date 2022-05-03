@@ -1,4 +1,4 @@
-yes | service mysql start;
+service mysql start;
 yes n | mysql_secure_installation;
 mysql -u root -p << EOF
 

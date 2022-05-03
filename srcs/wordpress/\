@@ -24,7 +24,7 @@ RUN		mkdir -p /tmp/wordpress/wp-content/upgrade /run/php /var/www/wordpress/
 RUN		sed 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 0.0.0.0:9000/' -i /etc/php/7.3/fpm/pool.d/www.conf
 RUN		cp -Rp /tmp/wordpress/. /var/www/wordpress
 
-RUN		chmod -R 777 /var/www/wordpress
+RUN		chmod -r /var/www/wordpress 777
 ADD		requirements/wordpress.conf /etc/
 
 EXPOSE	9000
