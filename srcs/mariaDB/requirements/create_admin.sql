@@ -1,12 +1,8 @@
-service mysql start;
-yes n | mysql_secure_installation;
-mysql -u root -p << EOF
-
 CREATE DATABASE IF NOT EXISTS wordpress;
-CREATE USER '$USER_NAME_MARIADB'@'localhost';
-SET PASSWORD FOR '$USER_NAME_MARIADB'@'localhost' = PASSWORD('$USER_PASSWORD_MARIADB');
-GRANT ALL PRIVILEGES ON wordpress.* TO '$USER_NAME_MARIADB'@'localhost' IDENTIFIED BY '$USER_PASSWORD_MARIADB';
-GRANT ALL ON wordpress.* to '$USER_NAME_MARIADB'@'%' IDENTIFIED BY '$USER_PASSWORD_MARIADB';
+CREATE USER 'jbondri'@'localhost';
+SET PASSWORD FOR 'jbondri'@'localhost' = PASSWORD('MDPJ');
+GRANT ALL PRIVILEGES ON wordpress.* TO 'jbondri'@'localhost' IDENTIFIED BY 'MDPJ';
+GRANT ALL ON wordpress.* to 'jbondri'@'%' IDENTIFIED BY 'MDPJ';
 
 FLUSH PRIVILEGES;
 
@@ -20,4 +16,3 @@ FLUSH PRIVILEGES;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpass';
 FLUSH PRIVILEGES;
-EOF
