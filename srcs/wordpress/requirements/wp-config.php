@@ -4,10 +4,10 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'jbondri' );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'mdpjbondri' );
+define( 'DB_PASSWORD', 'MDPJ' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'jbondri' );
+define( 'DB_HOST', 'mariadb' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );

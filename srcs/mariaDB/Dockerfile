@@ -11,12 +11,10 @@ RUN		apt-get update -y \
 		&& apt-get install wget -y \
 		&& echo $USER_NAME livre
 	
-ADD		./requirements/config.sh /config.sh
+ADD		./requirements/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-RUN		chmod 777 /config.sh;
+RUN		mysqld
 
+CMD		service mysql start; yes n | mysql_secure_installation;
 EXPOSE	3307
 
-RUN		sh /config.sh
-
-CMD		mysqld

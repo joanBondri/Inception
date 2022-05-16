@@ -26,6 +26,8 @@ RUN		cp -Rp /tmp/wordpress/. /var/www/wordpress
 
 RUN		chmod -R 777 /var/www/wordpress
 ADD		requirements/wordpress.conf /etc/
+ADD		requirements/wp-config.php /var/www/wordpress/
+ADD		./requirements/index.php /var/www/wordpress/
 
 EXPOSE	9000
 CMD /usr/sbin/php-fpm7.3 -R -F
