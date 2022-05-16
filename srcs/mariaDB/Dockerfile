@@ -13,8 +13,8 @@ RUN		apt-get update -y \
 	
 ADD		./requirements/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-RUN		mysqld
+RUN		service mysql start; cat setup.sql | mariadb -u root;
 
-CMD		service mysql start; yes n | mysql_secure_installation;
+CMD		mysqld
 EXPOSE	3307
 
