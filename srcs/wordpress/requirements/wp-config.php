@@ -7,7 +7,7 @@ define( 'DB_USER', 'jbondri' );
 define( 'DB_PASSWORD', 'MDPJ' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', 'mariadb:3307' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -29,14 +29,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'fdc53290fd66efaff9c8122bc1ac422f13d3e69f' );
-define( 'SECURE_AUTH_KEY',  'bf762ffb157db5d95dd57785e434b30367445486' );
-define( 'LOGGED_IN_KEY',    '0a63c732aeff6795be3aa08f113a33d33d49937d' );
-define( 'NONCE_KEY',        '3f9a998e6081fdb365278b9526c926bbfa0e0af4' );
-define( 'AUTH_SALT',        '49075d462262e51f73c8953bbd1a9bee12280a5f' );
-define( 'SECURE_AUTH_SALT', '45d9b47fd4430ebafdb5288f6001ae434a954b27' );
-define( 'LOGGED_IN_SALT',   '32b4ddc69e357da05552333f39777b97d0aeb27f' );
-define( 'NONCE_SALT',       'b94f1b9613dbca9a559eb8467599b02953c9360d' );
+define('AUTH_KEY',         '<H~o`d>9N4ly[4q7`PI($+^=e/tZ:3##RyE/C]uufl+l~PH5:ao1Qv$0(m?vi,-O');
+define('SECURE_AUTH_KEY',  'IZKw&%<1D.:;|F?89E{^_;a~EZ99ry7cDb!m!|&0M6Aq&NG,k>N]h.36*Iidw^`,');
+define('LOGGED_IN_KEY',    '6BBKn.,|`^o2x;-0OqV(/b5x-WrjI+ wDy5V9r0+oi)oCX|iiDd1-=2XLSxznb~O');
+define('NONCE_KEY',        '<yaKu2!A@{w6[dk0w$rx)j( XB@h*.(zE2Wr-2)OG{x4=AJcRl&Hmg[g,%uBwdr-');
+define('AUTH_SALT',        ',]Tq@O?4|(:{?;pP%7#db`*IBq%O|zHq~-l#/wn(w0,F{:+gOycCk/[rhb_>-GPG');
+define('SECURE_AUTH_SALT', 'CXQ }U>Xhz~h9wh9`S+.@Ep5R@w7{)2}_SEy@neZQ5/Saxg+Jtbl6y_mD4!{,V-x');
+define('LOGGED_IN_SALT',   'P5B|B@ Y,2}zdPaTki]CmT-oqE<y6M<j@:l?wP!4kzh-|2;<5eFh-(5 Z(YJkw~b');
+define('NONCE_SALT',       'rPp|2WtZ#sGLpH=Q^bKRT<A?O7GPMy7*M=;TtT>d?neX%a-$aAw[pVz1U0%<x4R/');
 /**#@-*/
 
 /**

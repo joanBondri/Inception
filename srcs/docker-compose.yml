@@ -31,6 +31,7 @@ services :
     networks :
         - backend
   mariadb :
+    container_name: mariadb
     build : ./mariaDB
     ports :
       - "3307:3307"

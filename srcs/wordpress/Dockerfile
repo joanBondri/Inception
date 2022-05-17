@@ -19,15 +19,19 @@ RUN		apt install -y php7.3-zip
 WORKDIR		/tmp
 RUN		curl -O https://wordpress.org/latest.tar.gz
 RUN		tar xzvf latest.tar.gz
-RUN		cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
-RUN		mkdir -p /tmp/wordpress/wp-content/upgrade /run/php /var/www/wordpress/
+RUN		mkdir -p /run/php /var/www/wordpress/
 RUN		sed 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 0.0.0.0:9000/' -i /etc/php/7.3/fpm/pool.d/www.conf
 RUN		cp -Rp /tmp/wordpress/. /var/www/wordpress
 
+#ADD		requirements/wp-config.php /var/www/wordpress/
+#RUN		cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 RUN		chmod -R 777 /var/www/wordpress
 ADD		requirements/wordpress.conf /etc/
-ADD		requirements/wp-config.php /var/www/wordpress/
-ADD		./requirements/index.php /var/www/wordpress/
 
+RUN		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+		chmod +x wp-cli.phar && \
+		mv wp-cli.phar /usr/local/bin/wp-cli
+RUN		wp-cli config create --dbname=wordpress --dbuser=jbondri --dbpass=MDPJ --dbhost=mariadb:3307 --dbcharset=utf8 --path=/var/www/wordpress --allow-root --skip-check
+RUN		wp-cli core install --url=jbondri.42.fr --title="Jbond" --admin_name=jbondri --admin_password=MDPJ --admin_email=jbondri@student.42.fr --allow-root --skip-check --path=/var/www/wordpress/
 EXPOSE	9000
 CMD /usr/sbin/php-fpm7.3 -R -F

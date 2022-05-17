@@ -5,6 +5,8 @@ FROM debian:buster
 
 MAINTAINER JoanBondri
 
+WORKDIR		/
+
 RUN		apt-get update -y \
 		&& apt-get install mariadb-server -y \
 		&& apt-get install vim -y \
@@ -12,8 +14,9 @@ RUN		apt-get update -y \
 		&& echo $USER_NAME livre
 	
 ADD		./requirements/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+ADD		./requirements/setup.sql /
 
-RUN		service mysql start; cat setup.sql | mariadb -u root;
+RUN		service mysql start && mysql < setup.sql;
 
 CMD		mysqld
 EXPOSE	3307
