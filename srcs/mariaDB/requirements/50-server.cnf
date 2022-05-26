@@ -15,7 +15,7 @@
 #
 user                    = mysql
 pid-file                = /run/mysqld/mysqld.pid
-socket                  = 127.0.0.1
+socket                  = /run/mysqld/mysqld.sock
 port                    = 3307
 basedir                 = /usr
 datadir                 = /var/lib/mysql
@@ -131,3 +131,4 @@ collation-server      = utf8mb4_general_ci
 # If you use the same .cnf file for MariaDB of different versions,
 # use this group for options that older servers don't understand
 [mariadb-10.3]
+

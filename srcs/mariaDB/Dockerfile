@@ -16,7 +16,7 @@ RUN		apt-get update -y \
 ADD		./requirements/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 ADD		./requirements/setup.sql /
 
-RUN		service mysql start && mysql < setup.sql;
+RUN		service mysql start && mysql -u root < setup.sql;
 
 CMD		mysqld
 EXPOSE	3307

@@ -1,9 +1,7 @@
 CREATE DATABASE IF NOT EXISTS wordpress;
-CREATE USER 'jbondri'@'%';
-SET PASSWORD FOR 'jbondri'@'%' = PASSWORD('MDPJ');
-GRANT ALL PRIVILEGES ON wordpress.* TO 'jbondri'@'%' IDENTIFIED BY 'MDPJ';
-GRANT ALL ON wordpress.* to 'jbondri'@'%' IDENTIFIED BY 'MDPJ';
-
+CREATE USER 'jbondri'@'%' IDENTIFIED BY 'MDPJ';
+GRANT ALL PRIVILEGES ON *.* TO 'jbondri'@'%';
+GRANT ALL ON *.* to 'jbondri'@'%';
 FLUSH PRIVILEGES;
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpass';

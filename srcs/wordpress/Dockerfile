@@ -31,7 +31,10 @@ ADD		requirements/wordpress.conf /etc/
 RUN		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 		chmod +x wp-cli.phar && \
 		mv wp-cli.phar /usr/local/bin/wp-cli
-RUN		wp-cli config create --dbname=wordpress --dbuser=jbondri --dbpass=MDPJ --dbhost=mariadb:3307 --dbcharset=utf8 --path=/var/www/wordpress --allow-root --skip-check
-RUN		wp-cli core install --url=jbondri.42.fr --title="Jbond" --admin_name=jbondri --admin_password=MDPJ --admin_email=jbondri@student.42.fr --allow-root --skip-check --path=/var/www/wordpress/
+RUN		wp-cli config create --dbname=wordpress --dbuser=jbondri --dbpass=MDPJ --dbhost=mariadb:3307 --dbcharset=utf8 --path=/var/www/wordpress --allow-root --skip-check #--extra-php <<php
+#define ('WP_DEBOG', true);
+#define ('WP_DEBOG_LOG', true);
+#pdp
+#RUN		wp-cli core install --url=localhost --title=Jbond --admin_user=jbondri --admin_password=MDPJ --admin_email=jbondri@student.42.fr --path=/var/www/wordpress --allow-root
 EXPOSE	9000
 CMD /usr/sbin/php-fpm7.3 -R -F
