@@ -12,16 +12,17 @@ services :
   nginx :
     depends_on :
         - wordpress
-    build : ./nginx
+    build : ./containers/nginx
     ports :
-        - "8080:8080"
+      - "443:443"
     volumes :
         - WP_data:/var/www/wordpress/
     networks :
         - backend
+    restart : always
 
   wordpress :
-    build : ./wordpress
+    build : ./containers/wordpress
     ports :
         - "9000:9000"
     volumes :
@@ -30,11 +31,13 @@ services :
         - mariadb
     networks :
         - backend
+    restart : always
+    command: bash -c "/tmp/entry.sh && exec bash"
   mariadb :
     container_name: mariadb
-    build : ./mariaDB
+    build : ./containers/mariaDB
     ports :
-      - "3307:3307"
+      - "3306:3306"
     environment :
         USER_NAME_MARIADB : ${USER_NAME_MARIADB}
         PASSWORD_NAME_MARIADB : ${USER_PASSWORD_MARIADB}
@@ -44,3 +47,4 @@ services :
         - MDB_data:/data/mariadb/
     networks :
         - backend
+    restart : always

@@ -7,7 +7,7 @@ define( 'DB_USER', 'jbondri' );
 define( 'DB_PASSWORD', 'MDPJ' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'mariadb:3307' );
+define( 'DB_HOST', 'mariadb:3306' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );

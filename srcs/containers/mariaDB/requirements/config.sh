@@ -1,0 +1,23 @@
+service mysql start;
+yes n | mysql_secure_installation;
+#mysql -u root -p << EOF
+
+#CREATE DATABASE IF NOT EXISTS wordpress;
+#CREATE USER '$USER_NAME_MARIADB'@'jbondri.42.fr';
+#SET PASSWORD FOR '$USER_NAME_MARIADB'@'jbondri.42.fr' = PASSWORD('$USER_PASSWORD_MARIADB');
+#GRANT ALL PRIVILEGES ON wordpress.* TO '$USER_NAME_MARIADB'@'jbondri.42.fr' IDENTIFIED BY '$USER_PASSWORD_MARIADB';
+#GRANT ALL ON wordpress.* to '$USER_NAME_MARIADB'@'%' IDENTIFIED BY '$USER_PASSWORD_MARIADB';
+
+#FLUSH PRIVILEGES;
+
+#CREATE USER 'superuser'@'jbondri.42.fr' IDENTIFIED BY 'password';
+#GRANT ALL PRIVILEGES ON *.* TO 'superuser'@'jbondri.42.fr' WITH GRANT OPTION;
+#FLUSH PRIVILEGES;
+
+#CREATE USER 'superuser'@'%' IDENTIFIED BY 'password';
+#GRANT ALL PRIVILEGES ON *.* TO 'superuser'@'%' WITH GRANT OPTION;
+#FLUSH PRIVILEGES;
+
+#ALTER USER 'root'@'jbondri.42.fr' IDENTIFIED BY 'newpass';
+#FLUSH PRIVILEGES;
+#EOF

@@ -19,5 +19,4 @@ ADD		./requirements/setup.sql /
 RUN		service mysql start && mysql -u root < setup.sql;
 
 CMD		mysqld
-EXPOSE	3307
-
+EXPOSE	3306

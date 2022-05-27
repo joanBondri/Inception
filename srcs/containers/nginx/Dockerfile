@@ -22,6 +22,6 @@ ADD		./requirements/config.sh /buff/nginx/config.sh
 
 RUN		sh /buff/nginx/config.sh
 
-EXPOSE 8080
+EXPOSE 443
 
 CMD ["nginx", "-g" ,"daemon off;"]
