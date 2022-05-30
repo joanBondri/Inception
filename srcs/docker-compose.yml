@@ -22,6 +22,7 @@ services :
     restart : always
 
   wordpress :
+    container_name: wordpress
     build : ./containers/wordpress
     ports :
         - "9000:9000"
